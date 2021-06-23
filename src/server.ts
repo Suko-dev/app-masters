@@ -16,9 +16,7 @@ app.use(
         response: Response,
         next: NextFunction
     ): Promise<Response> => {
-        return response
-            .status(400)
-            .json({ message: err.message, stack: err.stack });
+        return response.status(400).json({ message: err.message });
     }
 );
 app.listen(process.env.PORT || 8080, () => console.log(`Servidor rodando`));
