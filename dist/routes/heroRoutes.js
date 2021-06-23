@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.heroRoutes = void 0;
+var express_1 = require("express");
+var HeroDetailController_1 = require("../controller/HeroDetailController");
+var SearchHeroController_1 = require("../controller/SearchHeroController");
+exports.heroRoutes = express_1.Router();
+var searchHeroController = new SearchHeroController_1.SearchHeroController();
+var heroDetailController = new HeroDetailController_1.HeroDetailController();
+exports.heroRoutes.get("/search", searchHeroController.handle);
+exports.heroRoutes.get("/hero/:slug", heroDetailController.handle);
